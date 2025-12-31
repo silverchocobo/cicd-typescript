@@ -26,6 +26,7 @@ jobs:
       
 
   style:
+    needs: tests
     name: Style
     runs-on: ubuntu-latest
     
