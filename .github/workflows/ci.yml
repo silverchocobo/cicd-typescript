@@ -45,7 +45,7 @@ jobs:
         run: npm run format:check
 
       - name: Style Write
-        run: npm run format:write
+        run: npm run format:fix
 
       - name: Linting
         run: npm run lint 
