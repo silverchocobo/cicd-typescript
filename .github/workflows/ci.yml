@@ -23,3 +23,26 @@ jobs:
              
       - name: Run tests
         run: npm run test --coverage
+      
+
+  style:
+    name: Style
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.25.1"
+          
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Style Write
+        run: npm run format:fix
+
+      - name: Linting
+        run: npm run lint -- --max-warnings=0

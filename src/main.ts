@@ -18,6 +18,9 @@ if (!config.api.port) {
 const app = express();
 app.use(express.json());
 
+const port = process.env.PORT || 8080;
+const host = process.env.HOST || '0.0.0.0';
+
 app.use(
   cors({
     origin: ["https://*", "http://*"],
@@ -44,6 +47,6 @@ v1Router.get("/healthz", handlerReadiness);
 
 app.use("/v1", v1Router);
 
-app.listen(config.api.port, () => {
-  console.log(`Server is running on port: ${config.api.port}`);
+app.listen(Number(port), host,() => {
+  console.log(`Server is running on port: http://${host}:${port}`);
 });
