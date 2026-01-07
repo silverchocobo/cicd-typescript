@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { getAPIKey } from "../api/auth.ts";
+import { getAPIKey } from "../api/auth";
 import { IncomingHttpHeaders } from "http";
 
 test("header should have token", () => {
